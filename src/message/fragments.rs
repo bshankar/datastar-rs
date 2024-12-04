@@ -188,7 +188,7 @@ impl FragmentsMessage for DatastarMessage {
         }
 
         if let Some(merge) = config.merge_mode {
-            Self::push_data(&mut inner, "merge", merge.as_datastar_name());
+            Self::push_data(&mut inner, "mergeMode", merge.as_datastar_name());
         }
 
         if let Some(selector) = config.selector {
