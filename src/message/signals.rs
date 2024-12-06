@@ -80,7 +80,9 @@ pub trait SignalsMessage {
 }
 
 impl SignalsMessage for DatastarMessage {
-    /// Create a new SSE message that sends signals to merge in the frontend store
+    /// Create a new SSE message that updates the client-side store.
+    ///
+    /// Will serialize the provided object into JSON, and returns an error if that fails.
     fn merge_signals(data: &str, config: MergeSignalsConfig) -> Self {
         let mut inner = String::from(Self::EVENT_SIGNAL_MERGE);
 

@@ -34,21 +34,6 @@ impl DatastarMessage {
         msg.push('\n');
     }
 
-    /// Create a new SSE message that updates the client-side store.
-    ///
-    /// Will serialize the provided object into JSON, and returns an error if that fails.
-    pub fn merge_signals<T: serde::Serialize>(obj: &T) -> Result<Self, serde_json::Error> {
-        let mut inner = String::from(Self::EVENT_SIGNAL_MERGE);
-
-        let serialized_obj = serde_json::to_string(obj)?;
-
-        inner.push_str("data: ");
-        inner.push_str(&serialized_obj);
-        inner.push_str("\n\n");
-
-        Ok(Self(inner))
-    }
-
     /// Get the message as a [`String`].
     pub fn into_string(self) -> String {
         self.0
