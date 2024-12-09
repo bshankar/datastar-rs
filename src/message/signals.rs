@@ -98,7 +98,7 @@ impl SignalsMessage for DatastarMessage {
             Self::push_data(&mut inner, "onlyIfMissing", &only_if_missing.to_string());
         }
 
-        Self::push_data(&mut inner, "data", data);
+        Self::push_data(&mut inner, "signals", data);
 
         inner.push('\n');
         Self(inner)
